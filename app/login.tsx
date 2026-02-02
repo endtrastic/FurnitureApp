@@ -1,5 +1,5 @@
 import { Button } from "@react-navigation/elements";
-import { Text, View, StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, TextInput, TouchableOpacity, Link } from "react-native";
 import React, { useState } from 'react';
 import Ionicons from '@expo/vector-icons/Ionicons'; 
 
@@ -14,6 +14,10 @@ export default function Login() {
         alignItems: "center",
       }}
     >
+
+    
+
+
     <Text>Name</Text>
     <TextInput style={styles.input} placeholder="John Doe" />
 	
