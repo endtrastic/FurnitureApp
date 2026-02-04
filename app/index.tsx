@@ -9,10 +9,10 @@ export default function Index() {
     <View
       style={styles.container}
     >
-      <Image 
+    <Image 
         style={styles.image} 
         source={require('../assets/images/furn.jpg')} 
-	/>
+	  />
       <Text style={styles.text}>  You'll Find<Text style={styles.text2}>{"\n"}All you need{"\n"}</Text>      Here!
         
         

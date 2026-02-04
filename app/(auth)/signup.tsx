@@ -1,8 +1,8 @@
-import { Button } from "@react-navigation/elements";
-import React, { useState } from 'react';
-import { View, StyleSheet, Text, Platform, TextInput, TouchableOpacity } from "react-native";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import CheckBox from "expo-checkbox";
+import { Link } from 'expo-router';
+import React, { useState } from 'react';
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 // https://www.tutorialpedia.org/blog/how-do-you-style-a-textinput-in-react-native-for-password-input/
 // https://www.kindacode.com/article/working-with-checkbox-in-react-native
@@ -15,15 +15,22 @@ export default function Signup() {
   return (
     <View style={styles.container}>
 
-      <Text>Name</Text>
-      <TextInput style={styles.input} placeholder="John Doe" />
+      <Image 
+              style={styles.image} 
+              source={require('../../assets/images/icon.png')}/>
 
-      <Text>E-mail</Text>
+
+      <Link href="/" style={styles.imgtxt}>Sign Up</Link>
+
+      <Text style={styles.text}>Name</Text>
+      <TextInput style={styles.input} placeholder="John Doe"/>
+
+      <Text style={styles.text}>E-mail</Text>
       <TextInput style={styles.input} placeholder="example@gmail.com" />
 
 
       <View style={styles.inputContainer}>
-        <Text>Password</Text>
+        <Text style={styles.text}>Password</Text>
 	<TextInput
           style={styles.input}
           placeholder="********"
@@ -50,16 +57,15 @@ export default function Signup() {
           color={agree ? "#4630EB" : undefined}
         />
         <Text style={styles.text}>
-          I have read and agreed with the terms and conditions
+          I agree with <Text style={styles.boldtext}>Terms</Text> & <Text style={styles.boldtext}>Privacy</Text>
         </Text>
       </View>
-      <Button
-        title="Sign Up"
-        disabled={!agree}
-        onPress={() => {
-          /* Do something */
-        }}
-      />
+      <TouchableOpacity style={styles.butno} disabled={!agree} >
+        <Text style={styles.butnotext}>Sign up</Text>
+      </TouchableOpacity>
+      <Text style={styles.text}>Or sign up with</Text>
+
+      <Text style={styles.text}>Already have an account? Sign in</Text>
     </View>
   );
 };
@@ -97,8 +103,38 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
   },
   text: {
+    color: '#4F63AC',
     lineHeight: 30,
     marginLeft: 10,
+  },
+  boldtext: {
+    fontWeight: 'bold'
+  },
+  butno: {
+    backgroundColor: '#4F63AC',
+    width: 303,
+    height: 60,
+    borderRadius: 10,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    top: 45
+  },
+  butnotext: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: 700,
+    fontStyle: 'Monsserrat',
+  },
+  imgtxt: {
+    fontSize: 26,
+    fontWeight: 600,
+    color: '#4F63AC',
+    left: 50,
+    bottom: 35,
+  },
+  image: {
+    display: "flex",
   },
 });
  
