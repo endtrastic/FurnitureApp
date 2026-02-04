@@ -1,7 +1,7 @@
-import { Button } from "@react-navigation/elements";
 import { Image } from 'expo-image';
-import { TouchableOpacity, StyleSheet, Text, View, Alert } from "react-native";
-import { Link, Stack } from 'expo-router';
+import { Link } from 'expo-router';
+import { navigate } from 'expo-router/build/global-state/routing';
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 
 export default function Index() {
@@ -13,9 +13,12 @@ export default function Index() {
         style={styles.image} 
         source={require('../assets/images/furn.jpg')} 
 	/>
-      <Text style={styles.text}>You'll Find {"\n"} All you need {"\n"} Here!</Text>  
+      <Text style={styles.text}>  You'll Find<Text style={styles.text2}>{"\n"}All you need{"\n"}</Text>      Here!
+        
+        
+        </Text>  
 
-      <TouchableOpacity style={styles.butno} onPress={() => navigation.navigate('login')}>
+      <TouchableOpacity style={styles.butno} onPress={() => navigate('/(auth)/signup')}>
         <Text style={styles.butnotext}>Sign up</Text>
       </TouchableOpacity>
 	
@@ -39,15 +42,23 @@ const styles = StyleSheet.create({
   image: {
     width: 357,
     height: 209,
+    bottom: 100,
 
     backgroundColor: '#0553',
   },
   text: {
     fontSize: 40,
+    bottom: 50
+  },
+  text2: {
+    fontSize: 40,
+    color: "#FCA34D",
+    textDecorationLine: 'underline'
   },
   button: {
     fontSize: 16,
     color: '#0000',
+    top: 75
     
   },
   butno: {
@@ -57,7 +68,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'  
+    justifyContent: 'center',
+    top: 45
   },
   butnotext: {
     color: "white",
