@@ -9,19 +9,27 @@ import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "reac
 
 
 
+
 export default function Signup() {
   const [isSecure, setIsSecure] = useState(true); // Track if password is masked
   const [agree, setAgree] = useState(false); 
+
+
   return (
     <View style={styles.container}>
 
-      <Image 
-              style={styles.image} 
-              source={require('../../assets/images/icon.png')}/>
+      <View style={styles.header}>
+
+        <Link href={'/'}><Image 
+                style={styles.image} 
+                source={require('../../assets/images/icon.png')}/>
+        </Link>
+
+        <Link href={"/"} style={styles.imgtxt}>Sign Up</Link>
+      </View>
 
 
-      <Link href="/" style={styles.imgtxt}>Sign Up</Link>
-
+      
       <Text style={styles.text}>Name</Text>
       <TextInput style={styles.input} placeholder="John Doe"/>
 
@@ -31,7 +39,7 @@ export default function Signup() {
 
       <View style={styles.inputContainer}>
         <Text style={styles.text}>Password</Text>
-	<TextInput
+	    <TextInput
           style={styles.input}
           placeholder="********"
           secureTextEntry={isSecure} // Controlled by state
@@ -56,16 +64,29 @@ export default function Signup() {
           onValueChange={() => setAgree(!agree)}
           color={agree ? "#4630EB" : undefined}
         />
-        <Text style={styles.text}>
+        <Text style={styles.checktext}>
           I agree with <Text style={styles.boldtext}>Terms</Text> & <Text style={styles.boldtext}>Privacy</Text>
         </Text>
       </View>
+
+
+
       <TouchableOpacity style={styles.butno} disabled={!agree} >
         <Text style={styles.butnotext}>Sign up</Text>
       </TouchableOpacity>
-      <Text style={styles.text}>Or sign up with</Text>
 
-      <Text style={styles.text}>Already have an account? Sign in</Text>
+      <Text style={styles.textsign}>Or sign up with</Text>
+
+      <Link href={'/'}><Image 
+        style={styles.googleimg} 
+        source={require('../../assets/images/googlebut.png')}/>
+      </Link>
+
+      <View style={styles.wrap}>
+        <Text style={styles.acctext}>Already have an account?</Text> <Text style={styles.boldtext}> Sign in</Text>
+      </View>
+
+
     </View>
   );
 };
@@ -73,6 +94,7 @@ export default function Signup() {
 const styles = StyleSheet.create({
   inputContainer: {
     position: 'relative', // For absolute positioning of the toggle icon
+    paddingBottom: 25,
   },
   input: {
     height: 55,
@@ -88,27 +110,32 @@ const styles = StyleSheet.create({
   toggleButton: {
     position: 'absolute',
     right: 18, // Align to the right
-    top: '70%',
+    top: '75%',
     transform: [{ translateY: -22 }], // Center vertically (half of input height: 55/2 = 27.5, adjust for icon size)
   },
   container: {
     width: "100%",
     padding: 16,
     paddingTop: 100,
+    backgroundColor: '#FFF'
   },
   wrapper: {
     display: "flex",
     flexDirection: "row",
     alignContent: "center",
     paddingVertical: 15,
+    alignItems: 'center',
+    paddingLeft: 30
   },
   text: {
     color: '#4F63AC',
     lineHeight: 30,
     marginLeft: 10,
+    paddingTop: 20
   },
   boldtext: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: '#4F63AC',
   },
   butno: {
     backgroundColor: '#4F63AC',
@@ -118,7 +145,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    top: 45
+    alignSelf: 'center'
   },
   butnotext: {
     color: "white",
@@ -130,11 +157,55 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: 600,
     color: '#4F63AC',
-    left: 50,
-    bottom: 35,
+    marginLeft: 10,
+
   },
   image: {
-    display: "flex",
+    width: 20,
+    height: 20,
   },
+  googleimg: {
+    width: 142,
+    height: 60,
+    paddingTop: 15,
+    paddingBottom: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center',
+
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 15,
+    paddingBottom: 15,
+  },
+  checktext: {
+    marginLeft: 8,
+    fontSize: 14,
+    color: '#4F63AC',
+  },
+  textsign: {
+    color: '#4F63AC',
+    alignSelf: 'center',
+    paddingVertical: 25
+  },
+  wrap: {
+    display: "flex",
+    flexDirection: "row",
+    alignContent: "center",
+    paddingVertical: 70,
+    alignItems: 'center',
+    alignSelf: 'center'
+    
+
+  },
+  acctext: {
+    color: '#4F63AC',
+
+
+  }
+
+
 });
  
