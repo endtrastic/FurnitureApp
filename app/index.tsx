@@ -22,7 +22,7 @@ export default function Index() {
         <Text style={styles.butnotext}>Sign up</Text>
       </TouchableOpacity>
 	
-      <Link href="/login" style={styles.button}>Sign in </Link>
+      <Link href="/login" style={styles.signbut}>Sign in </Link>
 
     </View>
 
@@ -42,13 +42,12 @@ const styles = StyleSheet.create({
   image: {
     width: 357,
     height: 209,
-    bottom: 100,
+    marginBottom: 50,
 
     backgroundColor: '#0553',
   },
   text: {
     fontSize: 40,
-    bottom: 50
   },
   text2: {
     fontSize: 40,
@@ -58,8 +57,7 @@ const styles = StyleSheet.create({
   button: {
     fontSize: 16,
     color: '#0000',
-    top: 75
-    
+     
   },
   butno: {
     backgroundColor: '#4F63AC',
@@ -69,13 +67,19 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    top: 45
+    marginTop: 65,
+    marginBottom: 30
   },
   butnotext: {
     color: "white",
     fontSize: 16,
     fontWeight: 700,
     fontStyle: 'Monsserrat'
+  },
+  signbut: {
+    color: '#4F63AC',
+    fontSize: 16,
+    marginTop: 20,
   }
 
 });

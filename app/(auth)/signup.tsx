@@ -2,7 +2,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import CheckBox from "expo-checkbox";
 import { Link } from 'expo-router';
 import React, { useState } from 'react';
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Pressable, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 // https://www.tutorialpedia.org/blog/how-do-you-style-a-textinput-in-react-native-for-password-input/
 // https://www.kindacode.com/article/working-with-checkbox-in-react-native
@@ -77,13 +77,22 @@ export default function Signup() {
 
       <Text style={styles.textsign}>Or sign up with</Text>
 
-      <Link href={'/'}><Image 
-        style={styles.googleimg} 
-        source={require('../../assets/images/googlebut.png')}/>
-      </Link>
+ 
+        <View style={styles.googlewrap}>
+	  <Link href="/" asChild>
+	    <Pressable>
+	      <Image
+	        source={require('../../assets/images/googlebut.png')}
+	        style={styles.googleimg}
+	        resizeMode="contain"
+	      />
+	    </Pressable>
+	  </Link>
+	</View>
+
 
       <View style={styles.wrap}>
-        <Text style={styles.acctext}>Already have an account?</Text> <Text style={styles.boldtext}> Sign in</Text>
+        <Text style={styles.acctext}>Already have an account?</Text> <Link href='/login' style={styles.boldtext}> Sign in</Link>
       </View>
 
 
@@ -92,7 +101,9 @@ export default function Signup() {
 };
  
 const styles = StyleSheet.create({
+  
   inputContainer: {
+    
     position: 'relative', // For absolute positioning of the toggle icon
     paddingBottom: 25,
   },
@@ -114,6 +125,7 @@ const styles = StyleSheet.create({
     transform: [{ translateY: -22 }], // Center vertically (half of input height: 55/2 = 27.5, adjust for icon size)
   },
   container: {
+    flex: 1,
     width: "100%",
     padding: 16,
     paddingTop: 100,
@@ -164,14 +176,21 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
   },
+  googlewrap: {
+    display: 'flex',
+    flex: 1,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingBottom: 25
+
+  },
   googleimg: {
     width: 142,
     height: 60,
     paddingTop: 15,
     paddingBottom: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignSelf: 'center',
+        	
 
   },
   header: {
@@ -194,9 +213,10 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignContent: "center",
-    paddingVertical: 70,
+    paddingTop: 10,
+    paddingBottom: 50,
     alignItems: 'center',
-    alignSelf: 'center'
+    alignSelf: 'center',
     
 
   },
