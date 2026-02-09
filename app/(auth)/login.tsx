@@ -1,5 +1,6 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import CheckBox from "expo-checkbox";
+import { navigate } from 'expo-router/build/global-state/routing';
 import { Link } from 'expo-router';
 import React, { useState } from 'react';
 import { Pressable, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
@@ -53,13 +54,17 @@ export default function Login() {
 
 
 
-      <TouchableOpacity style={styles.butno} disabled={!agree} >
+      <TouchableOpacity style={styles.butno} onPress={() => navigate('/(tabs)/home')}>
         <Text style={styles.butnotext}>Sign in</Text>
       </TouchableOpacity>
 
-      <Text style={styles.textsign}>Or sign in with</Text>
 
- 
+      <View style={styles.strike}>
+        <View style={styles.rect}></View>
+          <Text style={styles.textsign}>Or sign in with</Text>
+	<View style={styles.rect}></View>
+      </View>
+
         <View style={styles.googlewrap}>
 	 <Link href="/" asChild>
 	   <Pressable>
@@ -74,7 +79,12 @@ export default function Login() {
 
 
       <View style={styles.wrap}>
-        <Text style={styles.acctext}>Don't have an account?</Text> <Link href='/signup' style={styles.boldtext}> Sign Up</Link>
+        <Text style={styles.acctext}>
+  	   Don't have an account?{' '}
+ 	   <Link href="/signup" style={styles.boldtext}>
+    		Sign Up
+  	  </Link>
+	</Text>
       </View>
 
 
@@ -110,6 +120,18 @@ const styles = StyleSheet.create({
     padding: 16,
     paddingTop: 100,
     backgroundColor: '#FFF'
+  },
+  strike: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'center',
+    
+  },
+  rect: {
+    width: 90,
+    backgroundColor: '#DADADA',
+    height: 1,
+    marginVertical: 16
   },
   wrapper: {
     display: "flex",

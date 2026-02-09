@@ -75,8 +75,12 @@ export default function Signup() {
         <Text style={styles.butnotext}>Sign up</Text>
       </TouchableOpacity>
 
-      <Text style={styles.textsign}>Or sign up with</Text>
 
+      <View style={styles.strike}>
+	<View style={styles.rect}></View>
+        <Text style={styles.textsign}>Or sign up with</Text>
+        <View style={styles.rect}></View>
+      </View>
  
         <View style={styles.googlewrap}>
 	  <Link href="/" asChild>
@@ -92,7 +96,13 @@ export default function Signup() {
 
 
       <View style={styles.wrap}>
-        <Text style={styles.acctext}>Already have an account?</Text> <Link href='/login' style={styles.boldtext}> Sign in</Link>
+        <Text style={styles.acctext}>
+ 	   Already have an account?{' '}
+	  <Link href="/login" style={styles.boldtext}>
+    		Sign In
+  	  </Link>
+	</Text>
+
       </View>
 
 
@@ -121,8 +131,13 @@ const styles = StyleSheet.create({
   toggleButton: {
     position: 'absolute',
     right: 18, // Align to the right
-    top: '75%',
-    transform: [{ translateY: -22 }], // Center vertically (half of input height: 55/2 = 27.5, adjust for icon size)
+    top: '65%',
+    transform: [{ translateY: -5 }], // Center vertically (half of input height: 55/2 = 27.5, adjust for icon size)
+  },
+  rect: {
+    backgroundColor: '#DADADA',
+    width: 90,
+    height: 1,
   },
   container: {
     flex: 1,
@@ -144,6 +159,12 @@ const styles = StyleSheet.create({
     lineHeight: 30,
     marginLeft: 10,
     paddingTop: 20
+  },
+  strike: {
+    alignSelf: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 16
   },
   boldtext: {
     fontWeight: 'bold',
