@@ -7,6 +7,7 @@ export default function TabsLayout() {
         <Stack.Screen name="home" options={{ title: 'Home', headerShown: false }} />
 	<Stack.Screen name="product" options={{ title: 'Product', headerShown: false}}/>
 	<Stack.Screen name="favorite" options={{ title: 'Favorite', headerShown: false}} />
+	<Stack.Screen name="profile" options={{ title: 'Profile', headerShown: false}} />
       </Stack>
     );
 }
