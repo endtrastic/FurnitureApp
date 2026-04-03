@@ -1,11 +1,12 @@
 import { Stack } from "expo-router";
 
-export default function ProfileLayout() {
 
+
+export default function ProfileLayout() {
     return (
-      <Stack>
-        <Stack.Screen name="profile" options={{ title: 'Profile', headerShown: false }} />
-	<Stack.Screen name="settings" options={{ title: 'Settings', headerShown: false}}/>
-      </Stack>
+        <Stack screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="my-listings" options={{ headerShown: false }} />
+            <Stack.Screen name="settings" options={{ headerShown: false }} />
+        </Stack>
     );
 }

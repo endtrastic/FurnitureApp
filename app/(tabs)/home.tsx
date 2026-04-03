@@ -1,13 +1,14 @@
-import Ionicons from '@expo/vector-icons/Ionicons';
-import CheckBox from "expo-checkbox";
-import { navigate } from 'expo-router/build/global-state/routing';
-import { Link } from 'expo-router';
-import React, { useState } from 'react';
-import { ScrollView, Pressable, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-
+import { Link, useRouter } from 'expo-router';
+import React from 'react';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 
 export default function HomeScreen() {
+
+
+  const router = useRouter()
+
+
   return (
     <View style={styles.container}>
 
@@ -47,21 +48,31 @@ export default function HomeScreen() {
 
 	</View>
 
+
 	<View style={styles.products}>
-	 	<Image style={styles.size} source={require('../../assets/images/home/lamp.png')} />
-		<Image style={styles.size} source={require('../../assets/images/home/stand.png')}/>
-		<Image style={styles.size} source={require('../../assets/images/home/realchair.png')}/>
-		<Image style={styles.size} source={require('../../assets/images/home/desk.png')}/>
-        </View>
-
-
+	  <TouchableOpacity onPress={() => router.push("/product/1")}>
+	    <Image style={styles.size} source={require("../../assets/images/home/lamp.png")} />
+	  </TouchableOpacity>
+	  <TouchableOpacity onPress={() => router.push("/product/2")}>
+	    <Image style={styles.size} source={require("../../assets/images/home/stand.png")} />
+	  </TouchableOpacity>
+	  <TouchableOpacity onPress={() => router.push("/product/3")}>
+	    <Image style={styles.size} source={require("../../assets/images/home/realchair.png")} />
+	  </TouchableOpacity>
+	  <TouchableOpacity onPress={() => router.push("/product/4")}>
+	    <Image style={styles.size} source={require("../../assets/images/home/desk.png")} />
+	  </TouchableOpacity>
+	</View>
 
 	<View style={styles.foot}>
-                <Image style={styles.footsize} source={require('../../assets/images/home/footer/house.png')}/>
-                <Link href={'/(tabs)/favorite'}> <Image style={styles.footsize} source={require('../../assets/images/home/footer/tag.png')}/> </Link>
-                <Image style={styles.footsize} source={require('../../assets/images/home/footer/person.png')}/>
+	    <Image style={styles.footsize} source={require('../../assets/images/home/footer/house.png')}/>
+	    <Link href={'/(tabs)/favorite'}>
+	        <Image style={styles.footsize} source={require('../../assets/images/home/footer/tag.png')}/>
+	    </Link>
+	    <Link href={'/(tabs)/profile'}>
+	        <Image style={styles.footsize} source={require('../../assets/images/home/footer/person.png')}/>
+	    </Link>
 	</View>
-	
 
 
     </View>
@@ -88,10 +99,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   image: {
-	marginRight: 50,
-	width: 24,
-	height: 24,
-
+		marginRight: 50,
+		width: 24,
+		height: 24,
   },
   wrapfind: {
     flex: 0.15,
@@ -100,79 +110,51 @@ const styles = StyleSheet.create({
     gap: 20,
     marginRight: 100,
     marginTop: 35,
-
   },
-
   size: {
-	width: 157,
-	height: 253,
-
+		width: 157,
+		height: 253,
   },
-  products: 
-  {
-	
-	flex: 1,
-	flexDirection: 'row',
-	flexWrap: "wrap",
-	justifyContent: 'center',
-	gap: 30,
-	
+  products: {
+		flex: 1,
+		flexDirection: 'row',
+		flexWrap: "wrap",
+		justifyContent: 'center',
+		gap: 30,
   },
-  icons: 
-  {
-	flex: 0.15,
-	flexDirection: 'row',	
-	gap: 25,
-	justifyContent: 'center',
-	
-
+  icons: {
+		flex: 0.15,
+		flexDirection: 'row',	
+		gap: 25,
+		justifyContent: 'center',
   },
-  iconsize: 
-  {
-  	width: 44,
-	height: 44
-
-
+  iconsize: {
+		width: 44,
+		height: 44
   },
-  iconitem: 
-  {
-	alignItems: 'center'
+  iconitem: {
+		alignItems: 'center'
   },
-  bluetxt: 
-  {
-	color: '#4F63AC',
-	textSize: 14
+  bluetxt: {
+		color: '#4F63AC',
+		textSize: 14
   },
-  graytxt: 
-  {
-	opacity: 0.5
-
+  graytxt: {
+		opacity: 0.5
   },
-  foot: 
- 
-
-  {
-	width: 375,
-	height: 75,
-	backgroundColor: '#FFF',
-	flexDirection: 'row',
-	gap: 65,
-	alignItems: 'center',
-	justifyContent: 'center',
-	marginBottom: 50
-	
-
+  foot: {
+		width: 375,
+		height: 75,
+		backgroundColor: '#FFF',
+		flexDirection: 'row',
+		gap: 65,
+		alignItems: 'center',
+		justifyContent: 'center',
+		marginBottom: 50
   },
-  footsize: 
-
-  {
-	width: 24,
-	height: 24,
-
-
+  footsize: {
+		width: 24,
+		height: 24,
   }
-  
-
-
 });
 
