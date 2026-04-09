@@ -1,56 +1,68 @@
-# Welcome to your Expo app 👋
+# FurnitureApp
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Prerequisites
 
-## Get started
+Before getting started, make sure you have the following installed:
 
-1. Install dependencies
+- **Node.js** v25.6.1 or later
+- **npm** v11.12.1 or later
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+## Getting Started
 
-   ```bash
-   npx expo start
-   ```
+There are two ways to run this project locally depending on which version of Expo you want to use.
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+### Option 1 — Expo 54 (Recommended, faster setup)
 
 ```bash
-npm run reset-project
+git clone git@github.com:endtrastic/FurnitureApp.git
+cd FurnitureApp
+npm install
+npm install expo@^54.0.0
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+> **Note:** Make sure your phone is using Expo version 54 when using this option.
 
-## Learn more
+---
 
-To learn more about developing your project with Expo, look at the following resources:
+### Option 2 — Expo 55 (Latest, takes more time)
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+This option requires a few extra steps to ensure assets are compatible with the latest Expo version.
 
-## Join the community
+```bash
+git clone git@github.com:endtrastic/FurnitureApp.git
+cd FurnitureApp
+npm install
+npm install expo@^55.0.0
+npm install -g sharp-cli
+npx expo install --fix && npx expo-doctor
+```
 
-Join our community of developers creating universal apps.
+Resize the app icon to meet Expo 55 requirements:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-Started with Furniture app
-Started with Furniture app
-Started with Furniture app
-Started with Furniture app
-# FurnitureApp
-# FurnitureApp
+```bash
+cd assets/images
+sharp -i icon.png -o icon.png resize 1024 1024
+cd ../..
+```
+
+Then finish up and start the app:
+
+```bash
+npx expo install --fix
+npx expo start
+```
+
+---
+
+## Running the App
+
+Once `npx expo start` is running, you can open the app in:
+
+- [Expo Go](https://expo.dev/go) on your physical device
+- An Android emulator
+- An iOS simulator
